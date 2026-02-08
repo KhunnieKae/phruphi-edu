@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ศูนย์พัฒนาเด็กเล็ก - เทศบาลตำบลพรุพี</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&family=Sarabun:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary: #0288d1; /* สีฟ้า */
+            --dark-blue: #01579b; 
+            --gold: #FFD700; 
+            --bg: #f0faff; 
+            --white: #ffffff;
+        }
+        body { font-family: 'Sarabun', sans-serif; margin: 0; background-color: var(--bg); color: #333; }
+        
+        /* Navigation */
+        .nav-back { background: white; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-back a { text-decoration: none; color: var(--primary); font-weight: bold; font-family: 'Kanit'; display: flex; align-items: center; }
+        
+        /* แถบตัววิ่งข่าว */
+        .news-ticker {
+            background: var(--dark-blue);
+            color: white;
+            padding: 10px 0;
+            font-family: 'Kanit';
+            overflow: hidden;
+        }
 
+        /* Header & Logo */
+        .cdc-header { 
+            background: linear-gradient(rgba(2, 136, 209, 0.92), rgba(2, 136, 209, 0.92)), 
+                        url('https://images.unsplash.com/photo-1560241859-9971844b2046?w=1200');
+            background-size: cover; background-position: center; color: white; padding: 60px 20px; text-align: center;
+        }
+        .logo-container { margin-bottom: 25px; }
+        .logo-container img { 
+            height: 220px; /* ปรับโลโก้ logo1.png ให้ใหญ่พิเศษ */
+            width: auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+            transition: 0.3s ease;
+        }
+        .logo-container img:hover { transform: scale(1.05); }
+
+        /* Layout */
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+        .info-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 25px; }
+        
+        /* Cards */
+        .content-card { background: white; padding: 25px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e1f5fe; }
+        .section-title { font-family: 'Kanit'; color: var(--primary); border-left: 6px solid var(--primary); padding-left: 15px; margin-bottom: 20px; font-size: 1.4rem; }
+        
+        /* News Items */
+        .news-list { display: flex; flex-direction: column; gap: 15px; }
+        .news-item { display: flex; gap: 15px; align-items: center; padding: 10px; border-radius: 10px; transition: 0.3s; }
+        .news-item:hover { background: #f0faff; }
+        .date-badge { background: var(--primary); color: white; padding: 10px; border-radius: 8px; text-align: center; min-width: 60px; font-family: 'Kanit'; font-size: 0.9rem; }
+
+        /* Teachers List */
+        .teacher-item { display: flex; align-items: center; background: #fff; padding: 15px; border-radius: 15px; border: 1px solid #eee; margin-bottom: 15px; }
+        .teacher-img { width: 70px; height: 70px; border-radius: 50%; border: 3px solid var(--primary); margin-right: 15px; object-fit: cover; }
+
+        /* ปุ่มสมัครเรียนใหญ่พิเศษ */
+        .btn-register-main {
+            background: #ff9800; /* สีส้มให้ตัดกับสีฟ้า จะได้เห็นชัดๆ */
+            color: white;
+            font-family: 'Kanit';
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
+            transition: 0.3s;
+            text-align: center;
+        }
+        .btn-register-main:hover { transform: translateY(-5px); background: #f57c00; box-shadow: 0 12px 25px rgba(255, 152, 0, 0.5); }
+
+        footer { background: #1a1a1a; color: #fff; padding: 40px 20px; text-align: center; margin-top: 50px; }
+
+        @media (max-width: 768px) { 
+            .info-grid { grid-template-columns: 1fr; } 
+            .logo-container img { height: 160px; }
+            .btn-register-main { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav-back">
+    <div class="container" style="margin:0 auto;">
+        <a href="index.html">⬅ กลับหน้าหลักกองการศึกษา</a>
+    </div>
+</div>
+
+<div class="news-ticker">
+    <div class="container" style="margin:0 auto; display: flex;">
+        <span style="background: var(--gold); color: black; padding: 0 15px; border-radius: 4px; font-weight: bold; margin-right: 15px; white-space: nowrap;">ข่าวประกาศ:</span>
+        <marquee onmouseover="this.stop();" onmouseout="this.start();">
+            ขอเชิญผู้ปกครองยื่นใบสมัครเรียนผ่านระบบออนไลน์ได้แล้ววันนี้ | ศูนย์พัฒนาเด็กเล็กเปิดทำการปกติ | อัปเดตเมนูอาหารกลางวันสำหรับเด็กเล็กประจำสัปดาห์
+        </marquee>
+    </div>
+</div>
+
+<header class="cdc-header">
+    <div class="logo-container">
+        <img src="logo1.png" alt="โลโก้ศูนย์พัฒนาเด็กเล็ก">
+    </div>
+    <h1 style="font-family: 'Kanit'; margin:0; font-size: 2.5rem;">ศูนย์พัฒนาเด็กเล็กเทศบาลตำบลพรุพี</h1>
+    <p style="opacity: 0.9; margin-top: 5px; font-size: 1.2rem;">"กินอิ่ม นอนอุ่น หุ่นดี มีความสุข สนุกกับการเรียนรู้"</p>
+</header>
+
+<div class="container">
+    
+    <a href="https://script.google.com/macros/s/AKfycbzcoXLjyQcJ07zUx6FGnkc-gYOaiCFf2Vkx5M9oHeD-IuKryehRu08a64MLbycZWtCAGQ/exec" target="_blank" class="btn-register-main">
+        🧸 สมัครเรียนออนไลน์ (คลิกที่นี่) ✍️
+    </a>
+
+    <div class="info-grid">
+        <div class="main-content">
+            
+            <div class="content-card" style="border-top: 5px solid var(--primary);">
+                <h3 class="section-title">ข่าวสารล่าสุด</h3>
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="date-badge">08<br><small>ก.พ. 69</small></div>
+                        <div>
+                            <h4 style="margin:0; font-family:'Kanit';">เปิดรับสมัครนักเรียนใหม่ ปี 2569</h4>
+                            <p style="margin:5px 0 0; font-size:0.9rem; color:#666;">ผู้ปกครองสามารถสมัครผ่านลิงก์ออนไลน์ หรือติดต่อได้ที่ศูนย์ฯ</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="date-badge">05<br><small>ก.พ. 69</small></div>
+                        <div>
+                            <h4 style="margin:0; font-family:'Kanit';">กิจกรรมโครงการส่งเสริมสุขภาพเด็ก</h4>
+                            <p style="margin:5px 0 0; font-size:0.9rem; color:#666;">ภาพบรรยากาศการตรวจสุขภาพฟันและร่างกายประจำปี</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3 class="section-title">บุคลากรทางการศึกษา (จำนวนเด็ก 30 คน)</h3>
+                <div class="teacher-list">
+                    <div class="teacher-item">
+                        <img src="kru-kittiya.jpg" alt="นางสาวกิตติยา" class="teacher-img">
+                        <div>
+                            <strong style="color:var(--primary);">นางสาวกิตติยา รัตนพันธ์</strong><br>
+                            <small>ครูอันดับ คศ.1 (รักษาราชการแทน ผอ.ศพด.)</small>
+                        </div>
+                    </div>
+                    <div class="teacher-item">
+                        <img src="kru-sudjai.jpg" alt="นางสาวสุดใจ" class="teacher-img">
+                        <div>
+                            <strong>นางสาวสุดใจ เกตุณรายณ์</strong><br>
+                            <small>ผู้ดูแลเด็ก(ทักษะ)</small>
+                        </div>
+                    </div>
+                    <div class="teacher-item">
+                        <img src="kru-sangrawee.jpg" alt="นางสาวแสงระวี" class="teacher-img">
+                        <div>
+                            <strong>นางสาวแสงระวี วรฉายากร</strong><br>
+                            <small>ผู้ช่วยครูผู้ดูแลเด็ก</small>
+                        </div>
+                    </div>
+                    <div class="teacher-item">
+                        <img src="kru-jutamas.jpg" alt="นางสาวจุฑามาส" class="teacher-img">
+                        <div>
+                            <strong>นางสาวจุฑามาส เจียมสวัสดิ์</strong><br>
+                            <small>ผู้ช่วยครูผู้ดูแลเด็ก</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="content-card">
+                <h3 class="section-title">เมนูอาหารวันนี้</h3>
+                <div style="background: #e3f2fd; padding: 15px; border-radius: 12px; text-align: center;">
+                    <p style="font-weight:bold; color:var(--dark-blue);">🍴 เมนูวันนี้เสนอ:</p>
+                    <p>แกงจืดไข่น้ำหมูสับ + นมจืด <br>และผลไม้ตามฤดูกาล</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3 class="section-title">ติดต่อสอบถาม</h3>
+                <p style="font-size: 0.95rem;">📍 เทศบาลตำบลพรุพี อ.บ้านนาสาร จ.สุราษฎร์ธานี</p>
+                <a href="tel:077310676" style="text-decoration:none; color:var(--primary); font-weight:bold; display:block; margin-top:10px;">📞 โทร: 077-310-676</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 กองการศึกษา เทศบาลตำบลพรุพี</p>
+    <p>พัฒนาระบบโดย นางสาวปารณีย์ การชนะชัย นักวิชาการศึกษา</p>
+</footer>
+
+</body>
+</html>
