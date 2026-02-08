@@ -6,7 +6,7 @@
     <title>ข้อมูลสถานศึกษา - เทศบาลตำบลพรุพี</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&family=Sarabun:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #1A237E; --gold: #FFD700; --bg: #f4f7f6; --success: #2e7d32; --info: #0288d1; --news: #FF5722; }
+        :root { --primary: #1A237E; --gold: #FFD700; --bg: #f4f7f6; --success: #2e7d32; --info: #0288d1; --news: #FF5722; --orange: #ff9800; }
         body { font-family: 'Sarabun', sans-serif; margin: 0; background-color: var(--bg); color: #333; }
         
         /* Navigation */
@@ -23,7 +23,6 @@
             background-size: cover; background-position: center; color: white; padding: 60px 20px; text-align: center;
         }
 
-        /* ปรับโลโก้ให้ใหญ่สะใจและสวยงาม */
         .logo-container { 
             display: flex; 
             justify-content: center; 
@@ -31,13 +30,10 @@
             margin-bottom: 25px; 
         }
         .logo-container img { 
-            height: 220px; /* ขยายขนาดใหญ่ขึ้นเป็น 2 เท่าจากของเดิม */
+            height: 220px; 
             width: auto;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)); /* เพิ่มเงาให้ดูมีมิติ */
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)); 
             transition: transform 0.3s ease;
-        }
-        .logo-container img:hover {
-            transform: scale(1.05); /* เวลาเอาเมาส์วางจะขยายขึ้นอีกนิดนึง */
         }
         
         /* Layout Control */
@@ -48,15 +44,23 @@
         .content-card { background: white; padding: 25px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); position: relative; }
         .section-title { font-family: 'Kanit'; color: var(--primary); border-left: 6px solid var(--gold); padding-left: 15px; margin-bottom: 20px; font-size: 1.4rem; }
         
+        /* English Banner */
+        .english-banner { 
+            background: #e3f2fd; 
+            border: 2px dashed var(--info); 
+            padding: 20px; 
+            border-radius: 15px; 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            margin-bottom: 25px; 
+        }
+        .english-banner .icon { font-size: 2.5rem; }
+
         /* Vision Section */
         .vision-box { text-align: center; background: linear-gradient(135deg, #1A237E, #283593); color: white; padding: 30px; border-radius: 20px; margin-bottom: 25px; }
         .vision-text { font-size: 1.2rem; font-style: italic; line-height: 1.8; font-family: 'Sarabun'; }
 
-        /* News List */
-        .news-item { display: flex; gap: 20px; padding: 15px; border-radius: 12px; margin-bottom: 10px; transition: 0.3s; }
-        .news-item:hover { background: #fff8f6; }
-        .news-date { background: var(--news); color: white; min-width: 65px; height: 65px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Kanit'; line-height: 1.1; }
-        
         /* Stats Dashboard */
         .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
         .stat-item { background: #f8faff; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #eef2ff; }
@@ -65,32 +69,22 @@
         /* Teacher Profile */
         .teacher-card { text-align: center; padding: 30px; border-radius: 20px; border: 1px solid #eee; margin-bottom: 20px; background: #fff; }
         .teacher-card img { width: 160px; height: 160px; border-radius: 50%; border: 6px solid var(--gold); object-fit: cover; margin-bottom: 15px; }
-        .badge-director { background: #1A237E; color: white; padding: 5px 18px; border-radius: 25px; font-size: 0.85rem; font-family: 'Kanit'; display: inline-block; margin-bottom: 12px; }
-
-        /* Schedule Table */
-        .schedule-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
-        .schedule-table td { padding: 12px; border-bottom: 1px solid #eee; }
-        .time-col { font-weight: bold; color: var(--primary); width: 30%; }
 
         /* Buttons */
         .btn-register { background: var(--gold); color: #000; font-weight: 700; font-size: 1.1rem; padding: 18px; width: 100%; border-radius: 15px; margin-bottom: 20px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3); transition: 0.3s; font-family: 'Kanit'; border: none; box-sizing: border-box; }
-        .btn-register:hover { transform: scale(1.02); background: #f2cc00; }
         
         .btn-action { display: flex; align-items: center; justify-content: center; padding: 14px; border-radius: 12px; text-decoration: none; font-family: 'Kanit'; margin-bottom: 12px; transition: 0.3s; font-weight: 500; box-sizing: border-box; }
-        .btn-call { background: #e8f5e9; color: var(--success); border: 1px solid var(--success); }
         .btn-dl { background: #f1f3f9; color: #444; justify-content: space-between; border: 1px solid #e0e0e0; }
         .btn-dl:hover { background: var(--primary); color: white; }
 
-        /* Menu Card */
-        .menu-box { background: #FFF9C4; padding: 15px; border-radius: 15px; border-left: 5px solid #FBC02D; }
+        .plan-card { background: #e8eaf6; }
 
         footer { background: #1a1a1a; color: #fff; padding: 40px 20px; text-align: center; margin-top: 50px; }
 
-        /* ปรับขนาดโลโก้สำหรับมือถือ */
         @media (max-width: 768px) { 
             .info-grid { grid-template-columns: 1fr; } 
             .stat-grid { grid-template-columns: 1fr; } 
-            .logo-container img { height: 150px; } /* บนมือถือให้เล็กลงมานิดนึงเพื่อให้พอดีจอ */
+            .logo-container img { height: 150px; }
         }
     </style>
 </head>
@@ -106,7 +100,7 @@
     <div class="container" style="margin:0 auto; display: flex; align-items: center;">
         <span style="background: white; color: var(--news); padding: 2px 12px; border-radius: 5px; font-weight: bold; margin-right: 15px; font-size: 0.85rem; white-space: nowrap;">แจ้งข่าว</span>
         <marquee onmouseover="this.stop();" onmouseout="this.start();">
-            📢 โรงเรียนอนุบาลเทศบาลตำบลพรุพี เปิดรับสมัครนักเรียนใหม่ ปีการศึกษา 2569 ออนไลน์แล้ว! | ประกาศเมนูอาหารกลางวันสัปดาห์นี้อัปเดตแล้ว
+            📢 โรงเรียนอนุบาลเทศบาลตำบลพรุพี เปิดรับสมัครนักเรียนใหม่ ปีการศึกษา 2569 ออนไลน์แล้ว! | เน้นทักษะภาษาอังกฤษโดยครูต่างชาติ
         </marquee>
     </div>
 </div>
@@ -130,14 +124,11 @@
 
     <div class="info-grid">
         <div class="main-content">
-            <div class="content-card" style="border-top: 5px solid var(--news);">
-                <h3 class="section-title" style="color: var(--news); border-left-color: var(--news);">ประกาศล่าสุด</h3>
-                <div class="news-item">
-                    <div class="news-date"><b>08</b><small>ก.พ. 69</small></div>
-                    <div class="news-content">
-                        <h4 style="margin:0; font-family:'Kanit';">รับสมัครนักเรียน ประจำปี 2569</h4>
-                        <p style="margin:5px 0 0; font-size:0.9rem;">ผู้ปกครองสามารถยื่นเอกสารผ่านระบบออนไลน์ หรือดาวน์โหลดใบสมัครด้านข้าง</p>
-                    </div>
+            <div class="english-banner">
+                <div class="icon">🇬🇧</div>
+                <div>
+                    <h3 style="margin:0; font-family:'Kanit'; color: var(--primary);">โครงการเสริมสร้างทักษะภาษาอังกฤษ</h3>
+                    <p style="margin:5px 0 0; line-height:1.5;">เปิดโลกกว้างให้เด็กๆ ด้วยการเรียนการสอนภาษาอังกฤษพื้นฐานกับ **ครูชาวต่างชาติ** เป็นประจำทุกสัปดาห์ เพื่อปูพื้นฐานการสื่อสารอย่างเป็นธรรมชาติ</p>
                 </div>
             </div>
 
@@ -162,12 +153,11 @@
             <div class="content-card">
                 <h3 class="section-title">ตารางกิจกรรมประจำวัน</h3>
                 <table class="schedule-table">
-                    <tr><td class="time-col">08.00 น.</td><td>เคารพธงชาติ / สวดมนต์ / กิจกรรมหน้าเสาธง</td></tr>
-                    <tr><td class="time-col">09.00 น.</td><td>กิจกรรมเสริมประสบการณ์ / การเรียนรู้ตามหน่วย</td></tr>
-                    <tr><td class="time-col">10.30 น.</td><td>กิจกรรมกลางแจ้ง / กิจกรรมเสรี</td></tr>
+                    <tr><td class="time-col">08.00 น.</td><td>เคารพธงชาติ / กิจกรรมหน้าเสาธง</td></tr>
+                    <tr><td class="time-col">09.00 น.</td><td>กิจกรรมเสริมประสบการณ์ (รวมวิชาภาษาอังกฤษ)</td></tr>
                     <tr><td class="time-col">11.30 น.</td><td>รับประทานอาหารกลางวัน 🍱</td></tr>
                     <tr><td class="time-col">12.30 น.</td><td>นอนพักผ่อน 💤</td></tr>
-                    <tr><td class="time-col">14.30 น.</td><td>ตื่นนอน / รับประทานอาหารว่าง / เตรียมตัวกลับบ้าน</td></tr>
+                    <tr><td class="time-col">14.30 น.</td><td>ตื่นนอน / รับประทานอาหารว่าง / กลับบ้าน</td></tr>
                 </table>
             </div>
 
@@ -175,9 +165,8 @@
                 <h3 class="section-title">ทำเนียบครูและบุคลากร</h3>
                 <div class="teacher-card">
                     <img src="kru-suthida.jpg" alt="นางสุธิดา">
-                    <br><div class="badge-director">รักษาราชการแทน ผอ.โรงเรียนฯ</div>
                     <h4 style="margin: 5px 0; font-family: 'Kanit'; font-size: 1.3rem;">นางสุธิดา ราชสังข์</h4>
-                    <p style="color: #666; margin: 0;">ครูอันดับ คศ.2</p>
+                    <p style="color: #666; margin: 0;">รักษาราชการแทน ผอ.โรงเรียนฯ (ครู คศ.2)</p>
                 </div>
                 <div class="teacher-card">
                     <img src="kru-oraya.jpg" alt="นางอรญา">
@@ -192,15 +181,11 @@
                 <span>🎓 สมัครเรียนออนไลน์</span>
             </a>
 
-            <div class="content-card" style="border-top: 5px solid #FBC02D;">
-                <h3 class="section-title" style="border-left-color: #FBC02D;">เมนูอาหารวันนี้</h3>
-                <div class="menu-box">
-                    <p style="margin:0; font-weight:bold; color:#795548;">🍚 วันนี้เสนอเมนู:</p>
-                    <p style="margin:10px 0 0; line-height:1.5;">ข้าวมันไก่ตอน ผลไม้ตามฤดูกาล และนมโรงเรียนรสจืด</p>
-                </div>
-                <a href="lunch-menu.pdf" class="btn-action btn-dl" style="margin-top:15px;">
-                    <span>📅 ดูเมนูทั้งสัปดาห์</span> 📥
-                </a>
+            <div class="content-card plan-card" style="border-top: 5px solid var(--primary);">
+                <h3 class="section-title">แผนงานประจำปี</h3>
+                <a href="plan-budget.pdf" class="btn-action btn-dl"><span>📋 แผนปฏิบัติการ (งบประมาณ)</span> 📥</a>
+                <a href="plan-edu.pdf" class="btn-action btn-dl"><span>📋 แผนปฏิบัติการ (การศึกษา)</span> 📥</a>
+                <a href="plan-5year.pdf" class="btn-action btn-dl"><span>📋 แผนพัฒนาการศึกษา 5 ปี</span> 📥</a>
             </div>
 
             <div class="content-card">
@@ -212,7 +197,7 @@
 
             <div class="content-card">
                 <h3 class="section-title">ติดต่อสอบถาม</h3>
-                <a href="tel:077310676" class="btn-action btn-call">📞 โทร: 077-310-676</a>
+                <a href="tel:077310676" class="btn-action" style="background: #e8f5e9; color: #2e7d32; border: 1px solid #2e7d32;">📞 โทร: 077-310-676</a>
                 <a href="http://maps.google.com" target="_blank" class="btn-action" style="background: #e3f2fd; color: var(--info); border: 1px solid var(--info);">📍 แผนที่โรงเรียน</a>
             </div>
         </div>
