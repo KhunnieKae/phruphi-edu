@@ -6,48 +6,80 @@
     <title>กองการศึกษา เทศบาลตำบลพรุพี</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&family=Sarabun:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Sarabun', sans-serif; margin: 0; background-color: #f0f2f5; color: #1c1e21; }
-        header { background-color: #1A237E; color: white; padding: 60px 20px; text-align: center; font-family: 'Kanit', sans-serif; }
-        .container { max-width: 1100px; margin: -50px auto 50px; padding: 0 20px; }
+        :root { --primary: #1A237E; --gold: #FFD700; --bg: #f8f9fa; }
+        body { font-family: 'Sarabun', sans-serif; margin: 0; background-color: var(--bg); color: #333; line-height: 1.6; }
+        
+        /* Header & Hero Section */
+        header { 
+            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.9)), 
+                        url('https://images.unsplash.com/photo-1523050853063-bd8012fbb72a?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover; background-position: center;
+            color: white; padding: 100px 20px; text-align: center; font-family: 'Kanit', sans-serif; 
+        }
+        header h1 { margin: 0; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+
+        /* Dashboard Layout */
+        .container { max-width: 1100px; margin: -60px auto 60px; padding: 0 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
-        .card { background: white; padding: 40px 20px; border-radius: 20px; text-align: center; 
-                box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; text-decoration: none; color: inherit; display: block; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
-        .card-gold { background: linear-gradient(135deg, #FFD700, #FFA000); color: #000; font-weight: bold; border: none; }
-        .icon { font-size: 50px; margin-bottom: 20px; display: block; }
-        .title { font-family: 'Kanit', sans-serif; font-size: 1.4rem; }
+        
+        /* Modern Glass Card */
+        .card { 
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px; border-radius: 24px; text-align: center; 
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            text-decoration: none; color: inherit; display: block; 
+        }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); background: white; }
+
+        /* Highlight Card (สมัครเรียน) */
+        .card-gold { background: var(--gold); border: none; font-weight: bold; }
+        .card-gold .icon { filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+
+        .icon { font-size: 55px; margin-bottom: 20px; display: block; }
+        .title { font-family: 'Kanit', sans-serif; font-size: 1.3rem; color: var(--primary); }
+        .card-gold .title { color: #000; }
+
+        footer { background: #222; color: #ccc; padding: 40px 20px; text-align: center; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>กองการศึกษา เทศบาลตำบลพรุพี</h1>
-    <p>ระบบจัดการข้อมูลดิจิทัลและบริการออนไลน์</p>
+    <p>Educational and Digital Supply Management System</p>
 </header>
 
 <div class="container">
     <div class="grid">
         <a href="https://script.google.com/macros/s/AKfycbzcoXLjyQcJ07zUx6FGnkc-gYOaiCFf2Vkx5M9oHeD-IuKryehRu08a64MLbycZWtCAGQ/exec" class="card card-gold">
-            <span class="icon">📝</span>
+            <span class="icon">🎓</span>
             <span class="title">สมัครเรียนออนไลน์</span>
         </a>
 
         <a href="https://script.google.com/macros/s/AKfycbwUCb5dNx6TVmZ67wZSgCzjdrG4-g8pCNFfksM_lt2cNgX7AQEd1gwEipqmNzIBPoxv/exec" class="card">
-            <span class="icon">📊</span>
-            <span class="title">ระบบคุมพัสดุ ดิจิทัล</span>
+            <span class="icon">💻</span>
+            <span class="title">ระบบพัสดุ Web App</span>
         </a>
 
         <a href="#" class="card">
-            <span class="icon">📁</span>
-            <span class="title">งานแผน / คลังเอกสาร</span>
+            <span class="icon">📂</span>
+            <span class="title">คลังแผน / โครงการ</span>
         </a>
 
         <a href="#" class="card">
-            <span class="icon">🤝</span>
-            <span class="title">ระบบยืม-คืนอุปกรณ์</span>
+            <span class="icon">📢</span>
+            <span class="title">ข่าวประชาสัมพันธ์</span>
         </a>
     </div>
 </div>
+
+<footer>
+    <p>© 2026 กองการศึกษา เทศบาลตำบลพรุพี อำเภอบ้านนาสาร- จังหวัดสุราษฎร์ธานี</p>
+    <p>พัฒนาโดย นางสาวปารณีย์ การชนะชัย นักวิชาการศึกษา</p>
+</footer>
 
 </body>
 </html>
