@@ -47,6 +47,16 @@
         .teacher-item { display: flex; align-items: center; gap: 15px; padding: 12px; border-bottom: 1px solid #f0f0f0; }
         .teacher-img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; }
 
+        /* Footer - แก้ไขให้จัดกึ่งกลาง */
+        footer { 
+            background: var(--white); 
+            padding: 40px 20px; 
+            text-align: center; /* จัดตัวอักษรให้อยู่ตรงกลาง */
+            border-top: 1px solid #eee;
+            margin-top: 50px;
+        }
+        footer p { margin: 5px 0; color: #666; font-size: 0.95rem; }
+
         @media (max-width: 768px) { .info-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -147,7 +157,8 @@
 </div>
 
 <footer>
-    <p>© 2026 กองการศึกษา เทศบาลตำบลพรุพี<br>พัฒนาระบบโดย นางสาวปารณีย์ การชนะชัย นักวิชาการศึกษา</p>
+    <p>© 2026 กองการศึกษา เทศบาลตำบลพรุพี</p>
+    <p>พัฒนาระบบโดย นางสาวปารณีย์ การชนะชัย นักวิชาการศึกษา</p>
 </footer>
 
 </body>
