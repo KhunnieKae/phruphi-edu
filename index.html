@@ -16,22 +16,27 @@
             color: white; padding: 60px 20px 100px; text-align: center; font-family: 'Kanit', sans-serif; 
         }
 
-        /* ส่วนจัดวางโลโก้ */
+        /* ปรับส่วนจัดวางโลโก้ใหม่ให้ใหญ่และสวยขึ้น */
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
-            margin-bottom: 25px;
+            gap: 50px; /* เพิ่มระยะห่างระหว่างโลโก้ */
+            margin-bottom: 30px;
         }
         .logo-container img {
-            height: 120px; /* ปรับขนาดความสูงโลโก้ที่นี่ */
+            height: 160px; /* ปรับขนาดความสูงให้ใหญ่ขึ้นจากเดิม (120px -> 160px) */
             width: auto;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+            /* เพิ่มเงาให้โลโก้ดูมีมิติและคมชัด */
+            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4)) contrast(1.1);
+            transition: transform 0.3s ease;
+        }
+        .logo-container img:hover {
+            transform: scale(1.05); /* เวลาเอาเมาส์วางจะขยายขึ้นนิดนึง */
         }
 
-        header h1 { margin: 10px 0 5px; font-size: 2.6rem; letter-spacing: 1px; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); }
-        header p { font-size: 1.2rem; opacity: 0.9; margin: 0; }
+        header h1 { margin: 10px 0 5px; font-size: 2.8rem; letter-spacing: 1px; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); }
+        header p { font-size: 1.3rem; opacity: 0.9; margin: 0; font-weight: 300; }
 
         .container { max-width: 1100px; margin: -50px auto 60px; padding: 0 20px; }
         
@@ -75,8 +80,8 @@
         footer { background: #1a1a1a; color: #888; padding: 50px 20px; text-align: center; margin-top: 100px; }
         
         @media (max-width: 600px) {
-            .logo-container { gap: 15px; }
-            .logo-container img { height: 80px; }
+            .logo-container { gap: 20px; }
+            .logo-container img { height: 100px; } /* ปรับให้เล็กลงหน่อยในมือถือเพื่อให้ไม่ล้นหน้าจอ */
             header h1 { font-size: 1.8rem; }
         }
     </style>
@@ -86,7 +91,6 @@
 <header>
     <div class="logo-container">
         <img src="logo1.png" alt="โลโก้เทศบาลตำบลพรุพี">
-        
         <img src="logo2.png" alt="โลโก้กองการศึกษา">
     </div>
     
