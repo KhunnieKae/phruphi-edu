@@ -6,7 +6,7 @@
     <title>ศูนย์พัฒนาเด็กเล็ก - เทศบาลตำบลพรุพี</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&family=Sarabun:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #0288d1; --dark-blue: #01579b; --gold: #FFD700; --bg: #f0faff; --white: #ffffff; --orange: #ff9800; }
+        :root { --primary: #0288d1; --dark-blue: #01579b; --gold: #FFD700; --bg: #f0faff; --white: #ffffff; --orange: #ff9800; --red: #e53935; }
         body { font-family: 'Sarabun', sans-serif; margin: 0; background-color: var(--bg); color: #333; }
         
         /* Navigation & Ticker */
@@ -30,6 +30,12 @@
         /* Vision Box */
         .vision-card { background: linear-gradient(135deg, var(--primary), var(--dark-blue)); color: white; padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 25px; }
         
+        /* Announcement Style */
+        .announcement-item { display: flex; align-items: flex-start; gap: 15px; padding: 12px 0; border-bottom: 1px dashed #ddd; }
+        .announcement-item:last-child { border-bottom: none; }
+        .date-badge { background: #eee; padding: 5px 10px; border-radius: 8px; font-size: 0.8rem; min-width: 80px; text-align: center; color: #666; }
+        .new-tag { background: var(--red); color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 5px; vertical-align: middle; }
+
         /* Special Feature: English Class */
         .english-banner { background: #fff3e0; border: 2px dashed var(--orange); padding: 15px; border-radius: 15px; display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
         .english-banner span { font-size: 2rem; }
@@ -47,14 +53,7 @@
         .teacher-item { display: flex; align-items: center; gap: 15px; padding: 12px; border-bottom: 1px solid #f0f0f0; }
         .teacher-img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; }
 
-        /* Footer - แก้ไขให้จัดกึ่งกลาง */
-        footer { 
-            background: var(--white); 
-            padding: 40px 20px; 
-            text-align: center; /* จัดตัวอักษรให้อยู่ตรงกลาง */
-            border-top: 1px solid #eee;
-            margin-top: 50px;
-        }
+        footer { background: var(--white); padding: 40px 20px; text-align: center; border-top: 1px solid #eee; margin-top: 50px; }
         footer p { margin: 5px 0; color: #666; font-size: 0.95rem; }
 
         @media (max-width: 768px) { .info-grid { grid-template-columns: 1fr; } }
@@ -87,6 +86,28 @@
 
     <div class="info-grid">
         <div class="main-content">
+            <div class="content-card">
+                <h3 class="section-title">ประกาศ/ข่าวสารล่าสุด</h3>
+                <div class="announcement-item">
+                    <div class="date-badge">8 ก.พ. 69</div>
+                    <div>
+                        <a href="#" style="text-decoration:none; color:#333; font-weight:bold;">ประกาศรับสมัครเด็กเล็กเพื่อเข้าเรียน ประจำปีการศึกษา 2569</a><span class="new-tag">NEW</span>
+                    </div>
+                </div>
+                <div class="announcement-item">
+                    <div class="date-badge">5 ก.พ. 69</div>
+                    <div>
+                        <a href="#" style="text-decoration:none; color:#333;">ขอเชิญผู้ปกครองเข้าร่วมประชุมเตรียมความพร้อมก่อนเปิดภาคเรียน</a>
+                    </div>
+                </div>
+                <div class="announcement-item">
+                    <div class="date-badge">1 ก.พ. 69</div>
+                    <div>
+                        <a href="#" style="text-decoration:none; color:#333;">ตารางการลงพื้นที่ฉีดวัคซีนป้องกันโรคติดต่อในเด็กเล็ก</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="english-banner">
                 <span>🇬🇧</span>
                 <div>
