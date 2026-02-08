@@ -6,7 +6,7 @@
     <title>ข้อมูลสถานศึกษา - เทศบาลตำบลพรุพี</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&family=Sarabun:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #1A237E; --gold: #FFD700; --bg: #f4f7f6; --success: #2e7d32; --info: #0288d1; --news: #FF5722; --orange: #ff9800; }
+        :root { --primary: #1A237E; --gold: #FFD700; --bg: #f4f7f6; --success: #2e7d32; --info: #0288d1; --news: #FF5722; --orange: #ff9800; --red: #d32f2f; }
         body { font-family: 'Sarabun', sans-serif; margin: 0; background-color: var(--bg); color: #333; }
         
         /* Navigation */
@@ -44,6 +44,16 @@
         .content-card { background: white; padding: 25px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); position: relative; }
         .section-title { font-family: 'Kanit'; color: var(--primary); border-left: 6px solid var(--gold); padding-left: 15px; margin-bottom: 20px; font-size: 1.4rem; }
         
+        /* Announcement Style */
+        .news-list { list-style: none; padding: 0; margin: 0; }
+        .news-item { display: flex; align-items: flex-start; gap: 15px; padding: 15px 0; border-bottom: 1px dashed #eee; transition: 0.2s; }
+        .news-item:last-child { border-bottom: none; }
+        .news-date-box { background: #f0f2f5; padding: 8px; border-radius: 10px; min-width: 60px; text-align: center; color: var(--primary); font-family: 'Kanit'; font-size: 0.85rem; line-height: 1.2; }
+        .news-date-box b { font-size: 1.2rem; display: block; }
+        .news-link { text-decoration: none; color: #333; font-weight: 500; flex: 1; }
+        .news-link:hover { color: var(--info); }
+        .badge-new { background: var(--red); color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; margin-left: 5px; vertical-align: middle; }
+
         /* English Banner */
         .english-banner { 
             background: #e3f2fd; 
@@ -56,10 +66,6 @@
             margin-bottom: 25px; 
         }
         .english-banner .icon { font-size: 2.5rem; }
-
-        /* Vision Section */
-        .vision-box { text-align: center; background: linear-gradient(135deg, #1A237E, #283593); color: white; padding: 30px; border-radius: 20px; margin-bottom: 25px; }
-        .vision-text { font-size: 1.2rem; font-style: italic; line-height: 1.8; font-family: 'Sarabun'; }
 
         /* Stats Dashboard */
         .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
@@ -114,21 +120,32 @@
 </header>
 
 <div class="container">
-    <div class="vision-box">
-        <h2 style="font-family: 'Kanit'; margin-top: 0; color: var(--gold);">ปรัชญา & วิสัยทัศน์</h2>
-        <p class="vision-text">
-            "ยึดมั่นระเบียบวินัย ตั้งใจใฝ่ศึกษา พัฒนาบุคลิกภาพ พัฒนาชาติไทย"<br>
-            <strong>วิสัยทัศน์:</strong> มุ่งพัฒนาเด็กปฐมวัยให้มีพัฒนาการที่สมบูรณ์ตามวัย มีคุณธรรม และรักษ์ความเป็นไทย
-        </p>
-    </div>
-
+    
     <div class="info-grid">
         <div class="main-content">
+            <div class="content-card" style="border-top: 5px solid var(--news);">
+                <h3 class="section-title" style="border-left-color: var(--news);">ประกาศข่าวสารล่าสุด</h3>
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-date-box"><b>08</b>ก.พ. 69</div>
+                        <a href="#" class="news-link">ประกาศรายชื่อผู้มีสิทธิ์เข้าเรียนระดับชั้นอนุบาล ประจำปีการศึกษา 2569 <span class="badge-new">ใหม่</span></a>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date-box"><b>05</b>ก.พ. 69</div>
+                        <a href="#" class="news-link">ขอเชิญร่วมกิจกรรมวันเปิดโลกการศึกษาปฐมวัย และรับฟังนโยบายการเรียนภาษาอังกฤษ</a>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date-box"><b>01</b>ก.พ. 69</div>
+                        <a href="#" class="news-link">ตารางการตรวจสุขภาพฟันและหยอดวัคซีน ประจำภาคเรียนที่ 2</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="english-banner">
                 <div class="icon">🇬🇧</div>
                 <div>
                     <h3 style="margin:0; font-family:'Kanit'; color: var(--primary);">โครงการเสริมสร้างทักษะภาษาอังกฤษ</h3>
-                    <p style="margin:5px 0 0; line-height:1.5;">เปิดโลกกว้างให้เด็กๆ ด้วยการเรียนการสอนภาษาอังกฤษพื้นฐานกับ **ครูชาวต่างชาติ** เป็นประจำทุกสัปดาห์ เพื่อปูพื้นฐานการสื่อสารอย่างเป็นธรรมชาติ</p>
+                    <p style="margin:5px 0 0; line-height:1.5;">เรียนกับ **ครูชาวต่างชาติ** เป็นประจำทุกสัปดาห์ เพื่อปูพื้นฐานการสื่อสารอย่างเป็นธรรมชาติ</p>
                 </div>
             </div>
 
@@ -148,17 +165,6 @@
                         <span class="stat-label">อนุบาล 3</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="content-card">
-                <h3 class="section-title">ตารางกิจกรรมประจำวัน</h3>
-                <table class="schedule-table">
-                    <tr><td class="time-col">08.00 น.</td><td>เคารพธงชาติ / กิจกรรมหน้าเสาธง</td></tr>
-                    <tr><td class="time-col">09.00 น.</td><td>กิจกรรมเสริมประสบการณ์ (รวมวิชาภาษาอังกฤษ)</td></tr>
-                    <tr><td class="time-col">11.30 น.</td><td>รับประทานอาหารกลางวัน 🍱</td></tr>
-                    <tr><td class="time-col">12.30 น.</td><td>นอนพักผ่อน 💤</td></tr>
-                    <tr><td class="time-col">14.30 น.</td><td>ตื่นนอน / รับประทานอาหารว่าง / กลับบ้าน</td></tr>
-                </table>
             </div>
 
             <div class="content-card">
