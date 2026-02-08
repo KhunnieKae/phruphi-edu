@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลสถานศึกษา - เทศบาลตำบลพรุพี</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&family=Sarabun:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #1A237E; --gold: #FFD700; --bg: #f4f7f6; }
+        body { font-family: 'Sarabun', sans-serif; margin: 0; background-color: var(--bg); }
+        .nav-back { background: white; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); sticky; top: 0; z-index: 1000; }
+        .nav-back a { text-decoration: none; color: var(--primary); font-weight: bold; font-family: 'Kanit'; }
+        .school-header { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200');
+            background-size: cover; background-position: center; color: white; padding: 80px 20px; text-align: center;
+        }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .info-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+        .content-card { background: white; padding: 25px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .section-title { font-family: 'Kanit'; color: var(--primary); border-left: 5px solid var(--gold); padding-left: 15px; margin-bottom: 20px; }
+        .teacher-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center; }
+        .teacher-item img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; background: #eee; border: 2px solid var(--gold); }
+        .btn-dl { display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #f8f9fa; border: 1px solid #eee; border-radius: 10px; text-decoration: none; color: #333; margin-bottom: 10px; transition: 0.3s; }
+        .btn-dl:hover { background: var(--primary); color: white; transform: translateX(5px); }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
 
+<div class="nav-back">
+    <div class="container" style="margin:0 auto;">
+        <a href="index.html">⬅ กลับหน้าแรก</a>
+    </div>
+</div>
+
+<header class="school-header">
+    <h1 style="font-family: 'Kanit'; margin:0;">สถานศึกษาในสังกัด</h1>
+    <p>กองการศึกษา เทศบาลตำบลพรุพี</p>
+</header>
+
+<div class="container">
+    <div class="info-grid">
+        <div class="main-content">
+            <div class="content-card">
+                <h3 class="section-title">ข้อมูลพื้นฐาน</h3>
+                <p>ยินดีต้อนรับสู่หน้ารวบรวมข้อมูลสถานศึกษา เพื่อความสะดวกในการเข้าถึงข้อมูลและดาวน์โหลดเอกสารต่างๆ</p>
+                <div style="display: flex; justify-content: space-around; text-align: center; margin-top: 20px;">
+                    <div><b style="font-size: 1.5rem; color: var(--primary);">---</b><br><small>นักเรียน</small></div>
+                    <div><b style="font-size: 1.5rem; color: var(--primary);">---</b><br><small>บุคลากร</small></div>
+                    <div><b style="font-size: 1.5rem; color: var(--primary);">---</b><br><small>ห้องเรียน</small></div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3 class="section-title">ทำเนียบครูและบุคลากร</h3>
+                <div class="teacher-list">
+                    <div class="teacher-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Director">
+                        <div style="font-size: 0.85rem; margin-top: 5px; font-weight: bold;">ชื่อ-นามสกุล</div>
+                        <div style="font-size: 0.7rem; color: #777;">ตำแหน่ง</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="content-card">
+                <h3 class="section-title">เอกสารดาวน์โหลด</h3>
+                <a href="#" class="btn-dl"><span>📄 ใบสมัครเรียน</span> 📥</a>
+                <a href="#" class="btn-dl"><span>📅 ปฏิทินวิชาการ</span> 📥</a>
+                <a href="#" class="btn-dl"><span>🍱 เมนูอาหาร</span> 📥</a>
+            </div>
+            <div class="content-card">
+                <h3 class="section-title">ติดต่อเรา</h3>
+                <p style="font-size: 0.9rem;">📞 โทร: 077-310-676<br>🔵 Facebook: <a href="#">คลิกที่นี่</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
