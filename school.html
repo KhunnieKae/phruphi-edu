@@ -6,13 +6,12 @@
     <title>ข้อมูลสถานศึกษา - เทศบาลตำบลพรุพี</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&family=Sarabun:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #1A237E; --gold: #FFD700; --bg: #f4f7f6; }
+        :root { --primary: #1A237E; --gold: #FFD700; --bg: #f4f7f6; --success: #2e7d32; --info: #0288d1; }
         body { font-family: 'Sarabun', sans-serif; margin: 0; background-color: var(--bg); }
         
         .nav-back { background: white; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .nav-back a { text-decoration: none; color: var(--primary); font-weight: bold; font-family: 'Kanit'; display: flex; align-items: center; }
         
-        /* ปรับ Header ให้มีโลโก้เหมือนหน้าแรก */
         .school-header { 
             background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(26, 35, 126, 0.85)), 
                         url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200');
@@ -24,28 +23,33 @@
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
         .info-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
         
-        .content-card { background: white; padding: 25px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .content-card { background: white; padding: 25px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
         .section-title { font-family: 'Kanit'; color: var(--primary); border-left: 5px solid var(--gold); padding-left: 15px; margin-bottom: 20px; }
         
-        /* ครู/บุคลากร */
         .teacher-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 15px; }
-        .teacher-card { text-align: center; padding: 15px; border: 1px solid #f0f0f0; border-radius: 10px; transition: 0.3s; background: #fff; }
-        .teacher-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--gold); margin-bottom: 10px; }
+        .teacher-card { text-align: center; padding: 20px; border: 1px solid #f0f0f0; border-radius: 15px; transition: 0.3s; background: #fff; }
+        .teacher-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .teacher-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--gold); margin-bottom: 12px; }
+        
+        .badge-director { background: var(--primary); color: white; padding: 3px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; display: inline-block; margin-bottom: 5px; }
         .teacher-name { font-weight: bold; color: #333; margin: 5px 0; font-size: 1.1rem; font-family: 'Kanit'; }
         .teacher-pos { font-size: 0.9rem; color: #666; margin: 2px 0; }
 
-        /* สถิติ */
         .stat-box { display: flex; justify-content: space-around; text-align: center; margin-top: 20px; background: #f8f9ff; padding: 20px; border-radius: 10px; }
         .stat-num { font-size: 1.8rem; color: var(--primary); font-weight: bold; display: block; }
 
-        .btn-dl { display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #f8f9fa; border: 1px solid #eee; border-radius: 10px; text-decoration: none; color: #333; margin-bottom: 10px; transition: 0.3s; }
-        .btn-dl:hover { background: var(--primary); color: white; transform: translateX(5px); }
-        
+        /* ปรับปรุงปุ่มให้น่ากดขึ้น */
+        .btn-action { display: flex; align-items: center; justify-content: center; padding: 12px; border-radius: 10px; text-decoration: none; font-family: 'Kanit'; font-size: 0.95rem; margin-bottom: 10px; transition: 0.3s; font-weight: 500; }
+        .btn-call { background: #e8f5e9; color: var(--success); border: 1px solid var(--success); }
+        .btn-map { background: #e3f2fd; color: var(--info); border: 1px solid var(--info); }
+        .btn-dl { background: #f8f9fa; color: #333; border: 1px solid #eee; justify-content: space-between; }
+        .btn-action:hover { opacity: 0.8; transform: scale(1.02); }
+
         footer { background: #1a1a1a; color: #888; padding: 40px 20px; text-align: center; margin-top: 50px; }
 
         @media (max-width: 768px) { 
             .info-grid { grid-template-columns: 1fr; } 
-            .logo-container img { height: 70px; }
+            .logo-container img { height: 75px; }
         }
     </style>
 </head>
@@ -72,10 +76,27 @@
             
             <div class="content-card" style="border-top: 5px solid var(--gold); text-align: center;">
                 <h3 class="section-title" style="border:none; padding:0;">วิสัยทัศน์ (Vision)</h3>
-                <p style="font-style: italic; color: #555; font-size: 1.1rem; line-height: 1.8;">
+                <p style="font-style: italic; color: #555; font-size: 1.15rem; line-height: 1.8;">
                     "จัดการศึกษาอย่างมีคุณภาพ พัฒนาผู้เรียนให้มีความพร้อมรอบด้าน <br>
                     มีคุณธรรม จริยธรรม และรักษ์ความเป็นไทย"
                 </p>
+            </div>
+
+            <div class="content-card">
+                <h3 class="section-title">ทำเนียบครูและบุคลากร</h3>
+                <div class="teacher-list">
+                    <div class="teacher-card">
+                        <img src="kru-suthida.jpg" alt="ครูสุธิดา">
+                        <div class="badge-director">รักษาราชการแทน ผอ.</div>
+                        <p class="teacher-name">นางสุธิดา ราชสังข์</p>
+                        <p class="teacher-pos">ครูอันดับ คศ.2</p>
+                    </div>
+                    <div class="teacher-card">
+                        <img src="kru-oraya.jpg" alt="ครูอรญา">
+                        <div style="height: 25px;"></div> <p class="teacher-name">นางอรญา ชูแก้ว</p>
+                        <p class="teacher-pos">ครูภารกิจ</p>
+                    </div>
+                </div>
             </div>
 
             <div class="content-card">
@@ -88,31 +109,14 @@
                 <div style="margin-top: 20px;">
                     <table style="width: 100%; border-collapse: collapse;">
                         <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 10px;">อนุบาล 2</td>
-                            <td style="text-align: right; font-weight: bold;">13 คน</td>
+                            <td style="padding: 12px;">ชั้นอนุบาล 2</td>
+                            <td style="text-align: right; font-weight: bold; color: var(--primary);">13 คน</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px;">อนุบาล 3</td>
-                            <td style="text-align: right; font-weight: bold;">12 คน</td>
+                            <td style="padding: 12px;">ชั้นอนุบาล 3</td>
+                            <td style="text-align: right; font-weight: bold; color: var(--primary);">12 คน</td>
                         </tr>
                     </table>
-                </div>
-            </div>
-
-            <div class="content-card">
-                <h3 class="section-title">ทำเนียบครูและบุคลากร</h3>
-                <div class="teacher-list">
-                    <div class="teacher-card">
-                        <img src="kru-suthida.jpg" alt="ครูสุธิดา">
-                        <p class="teacher-name">นางสุธิดา ราชสังข์</p>
-                        <p class="teacher-pos">ครูอันดับ คศ.2</p>
-                        <p class="teacher-pos" style="color: var(--primary); font-weight: bold;">รักษาราชการแทน ผอ.โรงเรียนฯ</p>
-                    </div>
-                    <div class="teacher-card">
-                        <img src="kru-oraya.jpg" alt="ครูอรญา">
-                        <p class="teacher-name">นางอรญา ชูแก้ว</p>
-                        <p class="teacher-pos">ครูภารกิจ</p>
-                    </div>
                 </div>
             </div>
 
@@ -127,28 +131,26 @@
 
         <div class="sidebar">
             <div class="content-card">
+                <h3 class="section-title">ติดต่อโรงเรียน</h3>
+                <a href="tel:077310676" class="btn-action btn-call">📞 โทร: 077-310-676</a>
+                <a href="https://maps.google.com/?q=โรงเรียนอนุบาลเทศบาลตำบลพรุพี" target="_blank" class="btn-action btn-map">📍 แผนที่โรงเรียน</a>
+            </div>
+
+            <div class="content-card">
                 <h3 class="section-title">ตารางกิจวัตร</h3>
-                <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
-                    <tr style="border-bottom: 1px solid #eee;"><td style="padding: 5px;">08.00 น.</td><td>เข้าแถว</td></tr>
-                    <tr style="border-bottom: 1px solid #eee;"><td style="padding: 5px;">09.00 น.</td><td>กิจกรรม 6 หลัก</td></tr>
-                    <tr style="border-bottom: 1px solid #eee;"><td style="padding: 5px;">11.30 น.</td><td>ทานข้าว 🍱</td></tr>
-                    <tr><td style="padding: 5px;">13.00 น.</td><td>นอนพัก 💤</td></tr>
+                <table style="width: 100%; font-size: 0.9rem; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid #eee;"><td style="padding: 8px;">08.00 น.</td><td>เข้าแถว/หน้าเสาธง</td></tr>
+                    <tr style="border-bottom: 1px solid #eee;"><td style="padding: 8px;">09.00 น.</td><td>กิจกรรมหลัก 6 ด้าน</td></tr>
+                    <tr style="border-bottom: 1px solid #eee;"><td style="padding: 8px;">11.30 น.</td><td>ทานอาหารกลางวัน 🍱</td></tr>
+                    <tr><td style="padding: 8px;">13.00 น.</td><td>นอนพักผ่อน 💤</td></tr>
                 </table>
             </div>
 
             <div class="content-card">
-                <h3 class="section-title">ดาวน์โหลด</h3>
-                <a href="#" class="btn-dl"><span>📄 ใบสมัครเรียน</span></a>
-                <a href="#" class="btn-dl"><span>📅 ปฏิทินวิชาการ</span></a>
-                <a href="#" class="btn-dl"><span>🍱 เมนูอาหาร</span></a>
-            </div>
-
-            <div class="content-card">
-                <h3 class="section-title">ที่ตั้งโรงเรียน</h3>
-                <div style="width: 100%; height: 200px; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15796.84542475471!2d99.4000!3d8.5000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMzAnMDAuMCJOIDk5wrAyNCcwMC4wIkU!5e0!3m2!1sth!2sth!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <small style="color: #666;">📍 ต.พรุพี อ.บ้านนาสาร จ.สุราษฎร์ธานี</small>
+                <h3 class="section-title">เอกสาร/ดาวน์โหลด</h3>
+                <a href="#" class="btn-action btn-dl"><span>📄 ใบสมัครเรียน</span> 📥</a>
+                <a href="#" class="btn-action btn-dl"><span>📅 ปฏิทินการศึกษา</span> 📥</a>
+                <a href="#" class="btn-action btn-dl"><span>🍱 เมนูอาหารประจำวัน</span> 📥</a>
             </div>
         </div>
     </div>
