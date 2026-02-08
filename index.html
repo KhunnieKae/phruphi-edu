@@ -31,6 +31,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
             transition: all 0.3s ease; text-decoration: none; color: inherit; 
             display: flex; flex-direction: column; align-items: center; justify-content: center;
+            border: 1px solid transparent;
         }
         .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); border: 1px solid var(--gold); }
 
@@ -95,22 +96,26 @@
 </div>
 
 <div class="container" style="margin-top: 60px;">
-    <h3 style="font-family: 'Kanit', sans-serif; color: var(--primary); text-align: center; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 10px; margin-bottom: 30px;">สถานศึกษาในสังกัด</h3>
+    <h3 style="font-family: 'Kanit', sans-serif; color: var(--primary); text-align: center; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 10px; margin-bottom: 30px;">สถานศึกษาในสังกัด (คลิกเพื่อดูข้อมูล)</h3>
     <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-        <div class="card" style="padding: 25px; flex-direction: row; text-align: left; justify-content: flex-start;">
+        
+        <a href="school.html" class="card" style="padding: 25px; flex-direction: row; text-align: left; justify-content: flex-start;">
             <span class="icon" style="font-size: 40px; margin-right: 20px; margin-bottom: 0;">🏫</span>
             <div>
                 <span class="title" style="font-size: 1.1rem; display: block;">โรงเรียนอนุบาลเทศบาลตำบลพรุพี</span>
                 <p style="font-size: 0.85rem; color: #666; margin: 5px 0;">ระดับปฐมวัย - ประถมศึกษา</p>
+                <small style="color: var(--primary); font-weight: bold;">คลิกดูรายละเอียด ⮕</small>
             </div>
-        </div>
-        <div class="card" style="padding: 25px; flex-direction: row; text-align: left; justify-content: flex-start;">
+        </a>
+
+        <a href="school.html" class="card" style="padding: 25px; flex-direction: row; text-align: left; justify-content: flex-start;">
             <span class="icon" style="font-size: 40px; margin-right: 20px; margin-bottom: 0;">👶</span>
             <div>
                 <span class="title" style="font-size: 1.1rem; display: block;">ศูนย์พัฒนาเด็กเล็กเทศบาลตำบลพรุพี</span>
                 <p style="font-size: 0.85rem; color: #666; margin: 5px 0;">ระดับเตรียมปฐมวัย</p>
+                <small style="color: var(--primary); font-weight: bold;">คลิกดูรายละเอียด ⮕</small>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 
@@ -142,7 +147,7 @@
             <ul class="system-list">
                 <li><a href="https://www.dla.go.th/land/officialDoc.do" target="_blank">📧 e-Doc กรมส่งเสริมการปกครองท้องถิ่น</a></li>
                 <li><a href="https://bannasan.go.th/" target="_blank">🏢 สำนักงานท้องถิ่นอำเภอบ้านนาสาร</a></li>
-                <li><a href="https://www.suratthani.go.th/home//" target="_blank">🌴 สำนักงานท้องถิ่นจังหวัดสุราษฎร์ธานี</a></li>
+                <li><a href="https://www.suratthani.go.th/" target="_blank">🌴 สำนักงานท้องถิ่นจังหวัดสุราษฎร์ธานี</a></li>
             </ul>
         </div>
 
